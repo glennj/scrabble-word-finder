@@ -1,0 +1,14 @@
+extends layout
+
+block header
+  link(rel='stylesheet', href='/stylesheets/scrabble.css')
+
+block content
+  h1= letters
+  table
+    tr
+      each n in sizes
+        th= n
+    tr
+      each list in lists
+        td= list.join('\n')

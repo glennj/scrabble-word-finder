@@ -1,0 +1,74 @@
+{
+  "name": "scrabble-word-finder",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "__compile": "./node_modules/.bin/babel --out-dir . ./lib/*.es6",
+    "lint": "eslint ./routes/*.js app.js",
+    "start": "[ -f ./lib/words.js ] && node ./bin/www || echo no words.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-watch": "^4.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": [
+            {
+              "node": "current"
+            }
+          ]
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "babel-plugin-transform-builtin-extend",
+        {
+          "globals": [
+            "Error"
+          ]
+        }
+      ],
+      [
+        "transform-regenerator"
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "import/prefer-default-export": "off",
+      "import/no-default-export": "off"
+    }
+  }
+}
